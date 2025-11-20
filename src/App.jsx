@@ -1,71 +1,58 @@
+import React from 'react'
+import Hero from './components/Hero'
+import Concept from './components/Concept'
+import WhyMiniSite from './components/WhyMiniSite'
+import Portfolio from './components/Portfolio'
+import Offer from './components/Offer'
+import Process from './components/Process'
+import Testimonials from './components/Testimonials'
+import Footer from './components/Footer'
+
 function App() {
   return (
-    <div className="min-h-screen bg-gradient-to-br from-slate-900 via-slate-800 to-slate-900">
-      {/* Subtle pattern overlay */}
-      <div className="absolute inset-0 bg-[radial-gradient(circle_at_50%_50%,rgba(59,130,246,0.05),transparent_50%)]"></div>
-
-      <div className="relative min-h-screen flex items-center justify-center p-8">
-        <div className="max-w-2xl w-full">
-          {/* Header with Flames icon */}
-          <div className="text-center mb-12">
-            <div className="inline-flex items-center justify-center mb-6">
-              <img
-                src="/flame-icon.svg"
-                alt="Flames"
-                className="w-24 h-24 drop-shadow-[0_0_25px_rgba(59,130,246,0.5)]"
-              />
-            </div>
-
-            <h1 className="text-5xl font-bold text-white mb-4 tracking-tight">
-              Flames Blue
-            </h1>
-
-            <p className="text-xl text-blue-200 mb-6">
-              Build applications through conversation
-            </p>
-          </div>
-
-          {/* Instructions */}
-          <div className="bg-slate-800/50 backdrop-blur-sm border border-blue-500/20 rounded-2xl p-8 shadow-xl mb-6">
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                1
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Describe your idea</h3>
-                <p className="text-blue-200/80 text-sm">Use the chat panel on the left to tell the AI what you want to build</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4 mb-6">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                2
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Watch it build</h3>
-                <p className="text-blue-200/80 text-sm">Your app will appear in this preview as the AI generates the code</p>
-              </div>
-            </div>
-
-            <div className="flex items-start gap-4">
-              <div className="flex-shrink-0 w-8 h-8 bg-blue-500 text-white rounded-lg flex items-center justify-center font-bold">
-                3
-              </div>
-              <div>
-                <h3 className="font-semibold text-white mb-1">Refine and iterate</h3>
-                <p className="text-blue-200/80 text-sm">Continue the conversation to add features and make changes</p>
-              </div>
-            </div>
-          </div>
-
-          {/* Footer */}
-          <div className="text-center">
-            <p className="text-sm text-blue-300/60">
-              No coding required • Just describe what you want
-            </p>
-          </div>
+    <div className="min-h-screen bg-[#F5EFE7]">
+      {/* top nav simple */}
+      <header className="sticky top-0 z-30 backdrop-blur bg-[#FFFDF8]/70 border-b border-[#D9C5A3]/40">
+        <div className="max-w-7xl mx-auto px-6 h-14 flex items-center justify-between">
+          <a href="#" className="text-sm font-medium text-[#4E3B33]">Mini‑sites de mariage par Hervé A.</a>
+          <nav className="hidden sm:flex items-center gap-6 text-sm text-[#4E3B33]/80">
+            <a href="#concept" className="hover:underline">Concept</a>
+            <a href="#pourquoi" className="hover:underline">Pourquoi</a>
+            <a href="#portfolio" className="hover:underline">Portfolio</a>
+            <a href="#offre" className="hover:underline">Offre</a>
+            <a href="#process" className="hover:underline">Process</a>
+          </nav>
+          <a href="#contact" className="text-sm text-white rounded-full px-4 py-2" style={{backgroundColor:'#4E3B33'}}>Contact</a>
         </div>
-      </div>
+      </header>
+
+      <main>
+        <Hero />
+        <Concept />
+        <WhyMiniSite />
+        <Portfolio />
+        <Offer />
+        <Process />
+        <Testimonials />
+
+        {/* Contact block */}
+        <section id="contact" className="bg-[#FFFDF8]">
+          <div className="max-w-3xl mx-auto px-6 py-16 sm:py-20 text-center">
+            <h2 className="text-3xl sm:text-4xl font-semibold text-[#4E3B33]">Parlons de votre projet</h2>
+            <p className="mt-3 text-[#4E3B33]/80">Quelques lignes suffisent. Nous revenons vers vous sous 24h avec des premières idées.</p>
+            <form onSubmit={(e)=>e.preventDefault()} className="mt-8 grid gap-4 text-left">
+              <input required placeholder="Vos prénoms" className="rounded-xl bg-white/70 ring-1 ring-[#D9C5A3]/50 px-4 py-3 outline-none focus:ring-2 focus:ring-[#D9C5A3]" />
+              <input required type="email" placeholder="Votre e‑mail" className="rounded-xl bg-white/70 ring-1 ring-[#D9C5A3]/50 px-4 py-3 outline-none focus:ring-2 focus:ring-[#D9C5A3]" />
+              <textarea rows="4" placeholder="Votre histoire, la date, le lieu, vos envies…" className="rounded-xl bg-white/70 ring-1 ring-[#D9C5A3]/50 px-4 py-3 outline-none focus:ring-2 focus:ring-[#D9C5A3]" />
+              <button className="mt-2 inline-flex justify-center rounded-full px-6 py-3 text-sm font-medium text-white shadow-sm" style={{backgroundColor:'#4E3B33'}}>
+                Envoyer ma demande
+              </button>
+            </form>
+          </div>
+        </section>
+      </main>
+
+      <Footer />
     </div>
   )
 }
